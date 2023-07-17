@@ -4,7 +4,8 @@ MIPSEL_TOOLCHAIN_PREFIX=mipsel-openwrt-linux-
 #ARM_TOOLCHAIN_PREFIX=arm-linux-gnueabihf-
 #ARM_TOOLCHAIN_PREFIX=arm-linux-gnueabi-
 #ARM_TOOLCHAIN_PREFIX=arm-poky-linux-gnueabi-
-ARM_TOOLCHAIN_PREFIX=arm-linux-gnueabihf-
+#ARM_TOOLCHAIN_PREFIX=arm-linux-gnueabihf-
+ARM_TOOLCHAIN_PREFIX=/usr/local/arago-x86_64/sysroots/x86_64-arago-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-
 UCLINUX_ARM_TOOLCHAIN_PREFIX=arm-uclinux-elf-
 UCLINUX_XPORT_TOOLCHAIN_PREFIX=m68k-uclinux-
 #MINGW_TOOLCHAIN_PREFIX=i586-mingw32msvc-
@@ -59,6 +60,11 @@ ifeq ($(TARGET), LINUX-ARM)
 TOOLCHAIN_PREFIX=$(ARM_TOOLCHAIN_PREFIX)
 CFLAGS += -mno-unaligned-access
 # CFLAGS += -mcpu=arm926ej-s
+CFLAGS += -march=armv7-a 
+CFLAGS += -mthumb 
+CFLAGS += -mfpu=neon 
+CFLAGS += -mfloat-abi=hard 
+CFLAGS += --sysroot="/usr/local/arago-x86_64/sysroots/armv7at2hf-neon-oe-linux-gnueabi"
 endif
 
 ifeq ($(TARGET), UCLINUX-WAGO)

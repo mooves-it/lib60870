@@ -18,6 +18,22 @@ Features:
 Please also consider the User Guide and the API reference documentation (https://support.mz-automation.de/doc/lib60870/latest/)
 
 
+## Compiling and running the examples for arago linux:
+
+
+Export the TARGET env variable for cross compiling with
+
+`export TARGET=LINUX-ARM`
+
+In the lib60870-C folder build the library with
+
+`make`
+
+Go to the examples folder and build the examples with
+
+`make`
+
+
 ## Compiling and running the examples:
 
 
